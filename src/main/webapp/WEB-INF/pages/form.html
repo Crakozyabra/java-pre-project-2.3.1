@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>User form</title>
+    </head>
+    <body>
+        <table border="1">
+            <caption th:text="${user.id == null} ? 'Create' : 'Update'"></caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="#" th:action="@{/users}" th:object="${user}" method="post" name="userForm">
+                    <tr>
+                        <td>
+                            <div th:text="${user.id}"></div>
+                            <input type="hidden" th:field="*{id}"/>
+                        </td>
+                        <td>
+                            <div>
+                                <input type="text" th:field="*{name}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <input type="date" th:field="*{birthday}"/>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="submit" th:text="${user.id == null} ? 'create' : 'update'"></button>
+                        </td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </body>
+</html>
