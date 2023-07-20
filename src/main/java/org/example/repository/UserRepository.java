@@ -14,7 +14,7 @@ import java.util.Objects;
 public class UserRepository {
 
     @PersistenceContext
-    EntityManager em;
+    private EntityManager em;
 
     @Transactional
     public User save(User user) {
